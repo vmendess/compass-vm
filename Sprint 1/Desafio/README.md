@@ -29,7 +29,7 @@ desafio/
  
 O banco de dados original está no arquivo `concessionaria.zip` e apresenta a seguinte estrutura:
 
-![Banco Desnormalizado](db_desnormalizado.png)
+![Banco Desnormalizado](../Evidencias/db_desnormalizado.png)
 
 A tabela desnormalizada apresenta graves violações das **formas normais (FNs)**, incluindo redundâncias, dependências parciais e transitivas. Essas violações comprometem a integridade, escalabilidade e consistência do banco de dados.
 
