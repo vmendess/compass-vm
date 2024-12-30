@@ -11,8 +11,8 @@ desafio/
 ├── concessionaria.zip/ # Arquivo inicial com a tabela `tb_locacao` desnormalizada. Use este arquivo para testar os scripts. 
 └── README.md # Documentação detalhada do desafio.
 ```
-
 ---
+
 ## 🛠️: **Banco de Dados Desnormalizado**
 
 ### Estrutura do Banco Desnormalizado
@@ -21,16 +21,9 @@ O banco de dados original está no arquivo `concessionaria.zip` e apresenta a se
 
 ![Banco Desnormalizado](../Evidencias/db_desnormalizado.png)
 
-A tabela desnormalizada apresenta graves violações das **formas normais (FNs)**, incluindo redundâncias, dependências parciais e transitivas. Essas violações comprometem a integridade, escalabilidade e consistência do banco de dados.
+A tabela desnormalizada apresenta graves violações das **formas normais (FNs)**, incluindo redundâncias, dependências parciais e transitivas. Essas violações comprometem a integridade, escalabilidade e consistência do banco de dados. 
 
 ---
-## 🛠️ **Etapa 1: Modelagem Relacional**
-
-### Descrição
-
-A modelagem relacional foi realizada com base no banco desnormalizado. Aplicando as regras de normalização, foram criadas tabelas com relações 1:N e 1:1. O diagrama lógico é apresentado a seguir:
-
-![Modelo Relacional](diagramas/logico-m-relacional.png)
 
 ### Passo a Passo da Normalização
 
@@ -47,6 +40,17 @@ A modelagem relacional foi realizada com base no banco desnormalizado. Aplicando
    - **Exemplo**: O atributo `estadoCliente` foi associado ao `idCliente` na tabela `Cliente`, evitando redundâncias e dependências transitivas.
 
 ---
+
+## 🛠️ **Etapa 1: Modelagem Relacional**
+
+### Descrição
+
+A modelagem relacional foi realizada com base no banco desnormalizado. Aplicando as regras de normalização, foram criadas tabelas com relações 1:N e 1:1. O diagrama lógico é apresentado a seguir:
+
+![Modelo Relacional](diagramas/logico-m-relacional.png)
+
+---
+
 ### Código SQL
 
 O script a seguir cria as tabelas normalizadas:
