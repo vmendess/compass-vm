@@ -2,7 +2,9 @@
 A pasta **Sprint 1** está organizada da seguinte forma:
 
 ```
-├── Certificados/ # Certificados conquistados na trilha de Data & Analytics. Nenhum certificado foi obtido especificamente nesta Sprint. ├── Desafio/ # Implementações relacionadas ao desafio. 
+├── Certificados/ # Certificados conquistados na trilha de Data & Analytics. Nenhum certificado foi obtido especificamente nesta Sprint. 
+
+├── Desafio/ # Implementações relacionadas ao desafio. 
 ├── Evidencias/ # Imagens que comprovam a execução do desafio. 
 ├── Exercicios/ # Scripts e resoluções dos exercícios dos casos de estudo: Biblioteca e Loja. 
 └── README.md # Documentação da Sprint 1.
