@@ -93,7 +93,8 @@ LIMIT 10;
 
 Resultado da consulta:
 
-![Validação Relacional](../consulta-validacao-m-relacional.png)
+![Consulta Validação Relacional](../Evidencias/modelo_relacional/tabelas_normalizadas/consulta-validacao-m-relacional.png)
+
 
 ---
 ### **Inserção de Dados nas Tabelas Normalizadas**
