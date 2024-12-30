@@ -19,7 +19,7 @@ desafio/
  
 O banco de dados original está no arquivo `concessionaria.zip` e apresenta a seguinte estrutura:
 
-![Banco Desnormalizado](db_desnormalizado.png)
+![Banco Desnormalizado](Evidencias/db_desnormalizado.png)
 
 A tabela desnormalizada apresenta graves violações das **formas normais (FNs)**, incluindo redundâncias, dependências parciais e transitivas. Essas violações comprometem a integridade, escalabilidade e consistência do banco de dados.
 
@@ -30,7 +30,7 @@ A tabela desnormalizada apresenta graves violações das **formas normais (FNs)*
 
 A modelagem relacional foi realizada com base no banco desnormalizado. Aplicando as regras de normalização, foram criadas tabelas com relações 1:N e 1:1. O diagrama lógico é apresentado a seguir:
 
-![Modelo Relacional](logico-m-relacional.png)
+![Modelo Relacional](desafio/diagramas/logico-m-relacional.png)
 
 ### Passo a Passo da Normalização
 
@@ -93,7 +93,7 @@ LIMIT 10;
 
 Resultado da consulta:
 
-![Validação Relacional](consulta-validacao-m-relacional.png)
+![Validação Relacional](evidencias/modelo_relacional/consulta-validacao-m-relacional.png)
 
 ---
 ### **Inserção de Dados nas Tabelas Normalizadas**
@@ -121,7 +121,7 @@ Para popular as tabelas normalizadas, os dados foram extraídos da tabela desnor
 
 O modelo dimensional foi criado com base na estrutura relacional, organizando os dados em uma tabela fato e dimensões. O diagrama lógico é apresentado abaixo:
 
-![Modelo Dimensional](logico-m-dimensional.png)
+![Modelo Dimensional](desafio/diagramas/logico-m-dimensional.png)
 
 ### Estrutura
 
@@ -152,7 +152,7 @@ CREATE TABLE dim_cliente (
 
 Os dados foram previamente extraídos e normalizados nas tabelas do modelo relacional usando `DISTINCT` para eliminar redundâncias. As `views` dimensionais, como a `dim_cliente`, organizam os dados já consolidados, garantindo consistência e integridade, exemplo de consulta simples na dim_cliente:
 
-![Modelo Dimensional](dimensao-cliente.png)
+![Modelo Dimensional](evidencias/modelo_dimensional/Dimensoes/dimensao-cliente.png)
 Script completo pode ser encontrado no arquivo [Script do Modelo Dimensional](etapa-2-modelagem-dimensional/modelagem-dimensional.sql)
 
 ---
@@ -177,7 +177,7 @@ LIMIT 10;
 
 Resultado da consulta:
 
-![Validação Dimensional](consulta-validacao-m-dimensional.png)
+![Validação Dimensional](evidencias/modelo_dimensional/consulta-validacao-m-dimensional.png)
 
 ---
 
