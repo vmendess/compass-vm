@@ -93,7 +93,7 @@ LIMIT 10;
 
 Resultado da consulta:
 
-![Validação Relacional](../../consulta-validacao-m-relacional.png)
+![Validação Relacional](../consulta-validacao-m-relacional.png)
 
 ---
 ### **Inserção de Dados nas Tabelas Normalizadas**
@@ -152,7 +152,7 @@ CREATE TABLE dim_cliente (
 
 Os dados foram previamente extraídos e normalizados nas tabelas do modelo relacional usando `DISTINCT` para eliminar redundâncias. As `views` dimensionais, como a `dim_cliente`, organizam os dados já consolidados, garantindo consistência e integridade, exemplo de consulta simples na dim_cliente:
 
-![Modelo Dimensional](../../dimensao-cliente.png)
+![Modelo Dimensional](../dimensao-cliente.png)
 
 Script completo pode ser encontrado no arquivo [Script do Modelo Dimensional](etapa-2-modelagem-dimensional/modelagem-dimensional.sql)
 
@@ -178,7 +178,7 @@ LIMIT 10;
 
 Resultado da consulta:
 
-![Validação Dimensional](../../consulta-validacao-m-dimensional.png)
+![Validação Dimensional](../consulta-validacao-m-dimensional.png)
 
 ---
 
