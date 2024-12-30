@@ -29,7 +29,7 @@ desafio/
  
 O banco de dados original está no arquivo `concessionaria.zip` e apresenta a seguinte estrutura:
 
-![Banco Desnormalizado](db_desnormalizado.png)
+![Banco Desnormalizado](../Evidencias/db_desnormalizado.png)
 
 A tabela desnormalizada apresenta graves violações das **formas normais (FNs)**, incluindo redundâncias, dependências parciais e transitivas. Essas violações comprometem a integridade, escalabilidade e consistência do banco de dados.
 
@@ -163,6 +163,7 @@ CREATE TABLE dim_cliente (
 Os dados foram previamente extraídos e normalizados nas tabelas do modelo relacional usando `DISTINCT` para eliminar redundâncias. As `views` dimensionais, como a `dim_cliente`, organizam os dados já consolidados, garantindo consistência e integridade, exemplo de consulta simples na dim_cliente:
 
 ![Modelo Dimensional](dimensao-cliente.png)
+
 Script completo pode ser encontrado no arquivo [Script do Modelo Dimensional](etapa-2-modelagem-dimensional/modelagem-dimensional.sql)
 
 ---

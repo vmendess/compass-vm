@@ -25,8 +25,8 @@ A pasta **[Desafio](Desafio/)** contém todos os artefatos relacionados ao desaf
 - **diagramas/**: Representações visuais dos modelos utilizados.
 - **etapa-1-modelagem-relacional/**: Script referente à modelagem relacional.
 - **etapa-2-modelagem-dimensional/**: Script referente à modelagem dimensional.
-- **arquivo-final/: Banco de dados SQLite com as implementações das modelagens relacional e dimensional.
-- **concessionaria.zip**: Arquivo compactado contendo o banco de dados original, utilize esse para seguir o passo a passo da modelagem relacional e dimensional
+- **arquivo-final**/: Banco de dados SQLite com as implementações das modelagens relacional e dimensional.
+- **concessionaria.zip**: Arquivo compactado contendo o banco de dados original, utilize esse para seguir o passo a passo das modelagens
 
 ---
 ## Evidências
@@ -78,4 +78,4 @@ ORDER BY COUNT(TBVENDAS.cdven) DESC
 LIMIT 1;
 ```
 
----
+
