@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Sprint 1/Desafio/README.md",
+                "file": "Sprint 1/Desafio/README_atualizado.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "README_atualizado"
             }
           }
         ]
@@ -164,8 +164,8 @@
   },
   "active": "ffcd33c2c62f4459",
   "lastOpenFiles": [
-    "Sprint 1/Desafio/README_atualizado.md",
     "Sprint 1/Desafio/README.md",
+    "Sprint 1/Desafio/README_atualizado.md",
     "Sprint 1/Desafio/README_corrigido.md",
     "README.md",
     "Sprint 1/Desafio/db_desnormalizado.png",
