@@ -1,3 +1,13 @@
+**OBS:** Os arquivos:
+- consulta-validacao-m-dimensional.png
+- consulta-validacao-m-relacional.png
+- db_desnormalizado.png
+- dimensao-cliente.png
+- logico-m-dimensional.png
+- logico-m-relacional.png
+
+As imagens deveriam estar na pasta `Evidencias`, e, se você verificar, elas estão realmente lá, e não na pasta `desafio`. Inicialmente, elas estavam na pasta `Evidencias` e foram corretamente referenciadas. No Obsidian, as imagens aparecem normalmente, mas no GitHub elas não carregam. Verifiquei a sintaxe (que, embora diferente no Obsidian e no GitHub, está correta neste caso) e o caminho das imagens, maiusculo e minusculo e estão corretos. Além disso, as imagens foram devidamente commitadas, mas continuam sem carregar no GitHub.
+
 ## 📂 **Estrutura de Arquivos**
 
 A pasta `desafio` está organizada da seguinte forma:
