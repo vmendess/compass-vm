@@ -3,7 +3,6 @@ A pasta **Sprint 1** está organizada da seguinte forma:
 
 ```
 ├── Certificados/ # Certificados conquistados na trilha de Data & Analytics. Nenhum certificado foi obtido especificamente nesta Sprint. 
-
 ├── Desafio/ # Implementações relacionadas ao desafio. 
 ├── Evidencias/ # Imagens que comprovam a execução do desafio. 
 ├── Exercicios/ # Scripts e resoluções dos exercícios dos casos de estudo: Biblioteca e Loja. 
@@ -47,7 +46,7 @@ Os exercícios desta pasta foram resolvidos como parte da trilha de aprendizado 
 Foco na criação e manipulação de consultas relacionadas a um sistema de biblioteca.
 
 **Exemplo de Código:**
-[Arquivo: secao-3-biblioteca/ex1.sql](secao-3-biblioteca/ex1.sql)
+[Ex01](Exercicios/secao-3-biblioteca/ex1.sql)
 
 ```sql
 -- E01: Apresente a query para listar todos os livros publicados após 2014.
@@ -63,7 +62,7 @@ Os exercícios desta seção têm como foco o gerenciamento de vendas em uma loj
 A consulta foi elaborada para identificar o vendedor com maior número de vendas concluídas. Essa análise é relevante para entender a performance individual dos vendedores e auxiliar na tomada de decisão.
 
 **Exemplo de Código:**
-[Arquivo: secao-4-loja/ex8.sql](secao-4-loja/ex8.sql)
+[Ex08](Exercicios/secao-4-loja/ex8.sql)
 
 ```sql
 -- E08: Apresente a query para listar o código e o nome do vendedor com maior
