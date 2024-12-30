@@ -1,4 +1,4 @@
-## 📂 **Estrutura de Arquivos**
+## 📂 **Estrutura de Arquivos da pasta desafio**
 
 A pasta `desafio` está organizada da seguinte forma:
 
@@ -93,7 +93,8 @@ LIMIT 10;
 
 Resultado da consulta:
 
-![Consulta Validação Relacional](../Evidencias/modelo_relacional/tabelas_normalizadas/consulta-validacao-m-relacional.png)
+![Consulta Validação Relacional](https://github.com/vmendess/compass-vm/blob/master/Sprint%201/Evidencias/modelo_relacional/consulta-validacao-m-relacional.png)
+
 
 
 ---
@@ -153,7 +154,8 @@ CREATE TABLE dim_cliente (
 
 Os dados foram previamente extraídos e normalizados nas tabelas do modelo relacional usando `DISTINCT` para eliminar redundâncias. As `views` dimensionais, como a `dim_cliente`, organizam os dados já consolidados, garantindo consistência e integridade, exemplo de consulta simples na dim_cliente:
 
-![Modelo Dimensional](../dimensao-cliente.png)
+![Dimensão Cliente](https://github.com/vmendess/compass-vm/blob/master/Sprint%201/Evidencias/modelo_dimensional/Dimensoes/dimensao-cliente.png)
+
 
 Script completo pode ser encontrado no arquivo [Script do Modelo Dimensional](etapa-2-modelagem-dimensional/modelagem-dimensional.sql)
 
@@ -179,7 +181,8 @@ LIMIT 10;
 
 Resultado da consulta:
 
-![Validação Dimensional](../consulta-validacao-m-dimensional.png)
+![Consulta Validação Dimensional](https://github.com/vmendess/compass-vm/blob/master/Sprint%201/Evidencias/modelo_dimensional/consulta-validacao-m-dimensional.png)
+
 
 ---
 
@@ -190,5 +193,5 @@ Resultado da consulta:
 3. Execute o script `modelagem-dimensional.sql` para criar o modelo dimensional.
 4. Utilize as consultas de validação para verificar a consistência dos dados.
 
----
+
 
