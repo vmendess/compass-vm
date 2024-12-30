@@ -1,13 +1,3 @@
-**OBS:** Os arquivos:
-- consulta-validacao-m-dimensional.png
-- consulta-validacao-m-relacional.png
-- db_desnormalizado.png
-- dimensao-cliente.png
-- logico-m-dimensional.png
-- logico-m-relacional.png
-
-As imagens deveriam estar na pasta `Evidencias`, e, se você verificar, elas estão realmente lá, e não na pasta `desafio`. Inicialmente, elas estavam na pasta `Evidencias` e foram corretamente referenciadas. No Obsidian, as imagens aparecem normalmente, mas no GitHub elas não carregam. Verifiquei a sintaxe (que, embora diferente no Obsidian e no GitHub, está correta neste caso) e o caminho das imagens, maiusculo e minusculo e estão corretos. Além disso, as imagens foram devidamente commitadas, mas continuam sem carregar no GitHub.
-
 ## 📂 **Estrutura de Arquivos**
 
 A pasta `desafio` está organizada da seguinte forma:
@@ -40,7 +30,7 @@ A tabela desnormalizada apresenta graves violações das **formas normais (FNs)*
 
 A modelagem relacional foi realizada com base no banco desnormalizado. Aplicando as regras de normalização, foram criadas tabelas com relações 1:N e 1:1. O diagrama lógico é apresentado a seguir:
 
-![Modelo Relacional](logico-m-relacional.png)
+![Modelo Relacional](diagramas/logico-m-relacional.png)
 
 ### Passo a Passo da Normalização
 
@@ -103,7 +93,7 @@ LIMIT 10;
 
 Resultado da consulta:
 
-![Validação Relacional](consulta-validacao-m-relacional.png)
+![Validação Relacional](../../consulta-validacao-m-relacional.png)
 
 ---
 ### **Inserção de Dados nas Tabelas Normalizadas**
@@ -131,7 +121,7 @@ Para popular as tabelas normalizadas, os dados foram extraídos da tabela desnor
 
 O modelo dimensional foi criado com base na estrutura relacional, organizando os dados em uma tabela fato e dimensões. O diagrama lógico é apresentado abaixo:
 
-![Modelo Dimensional](logico-m-dimensional.png)
+![Modelo Dimensional](diagramas/logico-m-dimensional.png)
 
 ### Estrutura
 
@@ -162,7 +152,7 @@ CREATE TABLE dim_cliente (
 
 Os dados foram previamente extraídos e normalizados nas tabelas do modelo relacional usando `DISTINCT` para eliminar redundâncias. As `views` dimensionais, como a `dim_cliente`, organizam os dados já consolidados, garantindo consistência e integridade, exemplo de consulta simples na dim_cliente:
 
-![Modelo Dimensional](dimensao-cliente.png)
+![Modelo Dimensional](../../dimensao-cliente.png)
 
 Script completo pode ser encontrado no arquivo [Script do Modelo Dimensional](etapa-2-modelagem-dimensional/modelagem-dimensional.sql)
 
@@ -188,7 +178,7 @@ LIMIT 10;
 
 Resultado da consulta:
 
-![Validação Dimensional](consulta-validacao-m-dimensional.png)
+![Validação Dimensional](../../consulta-validacao-m-dimensional.png)
 
 ---
 
