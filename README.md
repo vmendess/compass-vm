@@ -1,4 +1,5 @@
-![[foto.jpg]]
+![Minha_Foto](foto.jpg)
+
 
 ---
 ## Sobre mim
