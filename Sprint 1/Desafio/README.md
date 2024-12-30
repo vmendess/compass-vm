@@ -4,12 +4,7 @@ A pasta `desafio` está organizada da seguinte forma:
 
 ```
 desafio/
-├── arquivo-final/                  # concessionaria.sqlite com a modelagem                                              relacional e dimensional implementadas
-├── diagramas/                      # Pasta com diagramas do modelo relacional e                                         dimensional
-├── etapa-1-modelagem-relacional/   # Pasta com script .SQL para execução da                                             modelagem relacional
-├── etapa-2-modelagem-dimensional/  # Pasta com script .SQL para execução da                                             modelagem dimensional
-├── concessionaria.zip/             # Arquivo inicial com a tabela tb_locacao                                            desnormalizada, teste os scripts aqui
-└── README.md                       # Documentação do desafio
+├── arquivo-final/ # Arquivo `concessionaria.sqlite` com a modelagem relacional e dimensional implementadas. ├── diagramas/ # Pasta com diagramas dos modelos relacional e dimensional. ├── etapa-1-modelagem-relacional/ # Pasta com script `.SQL` para execução da modelagem relacional. ├── etapa-2-modelagem-dimensional/ # Pasta com script `.SQL` para execução da modelagem dimensional. ├── concessionaria.zip/ # Arquivo inicial com a tabela `tb_locacao` desnormalizada. Use este arquivo para testar os scripts. └── README.md # Documentação detalhada do desafio.
 ```
 
 ---
