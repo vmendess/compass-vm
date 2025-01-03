@@ -32,4 +32,3 @@
 3. [Sprint 3](Sprint%203/README.md)
 4. ...
 
-___
