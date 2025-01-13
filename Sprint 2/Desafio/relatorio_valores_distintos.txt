@@ -183,9 +183,9 @@
 - Valor: AC DC Power Monitor, Repete: 1 vezes
 - Valor: AC Freedom, Repete: 1 vezes
 - Valor: AC Mobile Control, Repete: 1 vezes
-- Valor: AC Remote Control, Repete: 1 vezes
-- Valor: Ac remote control, Repete: 1 vezes
 - Valor: ac remote control, Repete: 1 vezes
+- Valor: Ac remote control, Repete: 1 vezes
+- Valor: AC Remote Control, Repete: 1 vezes
 - Valor: AC remote control mobile, Repete: 1 vezes
 - Valor: AC Remote Control Simulator, Repete: 1 vezes
 - Valor: AC Remote for Carrier - NOW FREE, Repete: 1 vezes
@@ -454,8 +454,8 @@
 - Valor: AK-47 Assult Rifle: Gun Shooting Simulator Game, Repete: 1 vezes
 - Valor: AK-47 guns Sounds, Repete: 1 vezes
 - Valor: AK-47 Simulation and Info, Repete: 1 vezes
-- Valor: AK-47 Sounds, Repete: 1 vezes
 - Valor: AK-47 sounds, Repete: 1 vezes
+- Valor: AK-47 Sounds, Repete: 1 vezes
 - Valor: Ak-47 Wallpapers 2018, Repete: 1 vezes
 - Valor: AK-47: Simulator and Shooting, Repete: 1 vezes
 - Valor: AK47 Assault Rifle, Repete: 1 vezes
@@ -759,8 +759,8 @@
 - Valor: Art Drawing Ideas, Repete: 1 vezes
 - Valor: Art of F J Taylor, Repete: 1 vezes
 - Valor: Art Pixel Coloring. Color by Number., Repete: 1 vezes
-- Valor: Artificial Intelligence, Repete: 1 vezes
 - Valor: Artificial intelligence, Repete: 1 vezes
+- Valor: Artificial Intelligence, Repete: 1 vezes
 - Valor: Arto: f.infrared photo, Repete: 1 vezes
 - Valor: ARuler - AR Ruler app, Measure tools, Repete: 1 vezes
 - Valor: ARY NEWS, Repete: 1 vezes
@@ -1057,8 +1057,8 @@
 - Valor: Banorte Movil, Repete: 1 vezes
 - Valor: Bar BQ Night Middlesbrough, Repete: 1 vezes
 - Valor: Bar BQ Tonight Dublin, Repete: 1 vezes
-- Valor: BAR-B-Q Recipes, Repete: 1 vezes
 - Valor: Bar-B-Q Recipes, Repete: 1 vezes
+- Valor: BAR-B-Q Recipes, Repete: 1 vezes
 - Valor: Bar-B-Q Rib House, Repete: 1 vezes
 - Valor: Barbers.BH, Repete: 1 vezes
 - Valor: Barbie Life™, Repete: 1 vezes
@@ -1518,8 +1518,8 @@
 - Valor: Blood Donor, Repete: 1 vezes
 - Valor: Blood Glucose Tracker, Repete: 1 vezes
 - Valor: Blood Injection : ER Emergency Doctor ER injection, Repete: 1 vezes
-- Valor: Blood Pressure, Repete: 3 vezes
 - Valor: Blood pressure, Repete: 1 vezes
+- Valor: Blood Pressure, Repete: 3 vezes
 - Valor: Blood Pressure - Heartcare, Repete: 1 vezes
 - Valor: Blood Pressure - Stay Healthy, Repete: 1 vezes
 - Valor: Blood Pressure Companion, Repete: 2 vezes
@@ -5469,9 +5469,9 @@
 - Valor: I am Nose Doctor -Save my Nose, Repete: 1 vezes
 - Valor: I AM RICH, Repete: 1 vezes
 - Valor: I am Rich, Repete: 1 vezes
-- Valor: I am rich, Repete: 1 vezes
-- Valor: i am rich, Repete: 1 vezes
 - Valor: I Am Rich, Repete: 1 vezes
+- Valor: i am rich, Repete: 1 vezes
+- Valor: I am rich, Repete: 1 vezes
 - Valor: I am rich (Most expensive app), Repete: 1 vezes
 - Valor: I am Rich Person, Repete: 1 vezes
 - Valor: I am Rich Plus, Repete: 1 vezes
@@ -8702,8 +8702,8 @@
 - Valor: Theme eXp - Black Z Light, Repete: 1 vezes
 - Valor: Theme fo Oppo A30 Wallpaper & Icon, Repete: 1 vezes
 - Valor: Theme for Android 7.0, Repete: 1 vezes
-- Valor: Theme for Galaxy Note FE, Repete: 1 vezes
 - Valor: Theme For Galaxy Note FE, Repete: 1 vezes
+- Valor: Theme for Galaxy Note FE, Repete: 1 vezes
 - Valor: Theme for Galaxy Note FE Launcher | Live Wallpaper, Repete: 1 vezes
 - Valor: Theme for Iphone X Plus, Repete: 1 vezes
 - Valor: Theme for New Android P, Repete: 1 vezes
