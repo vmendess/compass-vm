@@ -76,7 +76,10 @@ plt.show()
 Gráficos foram gerados para visualizar padrões nos dados. Os principais incluem:
 
 #### **Top 5 Apps por Número de Instalações**
-Destacando os aplicativos mais populares com base no número de downloads.
+- Destacando os aplicativos mais populares com base no número de downloads.
+- 1e9 é uma expressão em notação científica que significa 1 bilhão, ou seja, 1000000000. 
+- A notação científica é uma forma de representar números muito grandes ou muito pequenos de forma que fiquem entre 1 e 10, multiplicados por uma potência de base 10. 
+- As linguagens de programação utilizam a notação e ou E porque é mais fácil de digitar e imprimir do que um sobrescrito. Por exemplo, 1e-9 representa uma flutuação baixa, enquanto 1e9 representa uma flutuação alta. 
 
 ![Top 5 Instalações](../Evidencias/top_5_instalacao.png)
 
