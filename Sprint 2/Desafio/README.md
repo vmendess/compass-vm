@@ -94,7 +94,7 @@ Gráficos que mostram cálculos adicionais para validar padrões nos dados.
 ![Cálculo Adicional 1](../Evidencias/calculo_adicional1.png)
 ![Cálculo Adicional 2](../Evidencias/calculo_adicional2.png)
 
-#### **Distribuição de Categorias**
+#### **Distribuição de Apps por Categoria (Total: 34 categorias)**
 Exibindo a frequência de cada categoria dentro do dataset.
 
 ![Distribuição de Categorias](../Evidencias/pie_chart.png)
