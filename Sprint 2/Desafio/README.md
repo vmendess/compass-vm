@@ -8,6 +8,14 @@ A pasta [`Desafio/`](Desafio/) está organizada da seguinte forma:
 - [`README.md`](README.md) - Documentação do desafio
 
 ---
+## Resumo do Desafio
+
+O desafio envolveu a análise de dados da Google Play Store, utilizando Python, Pandas, utilizei o Matplotlib.pyplot para processamento e visualização. As etapas incluíram diagnóstico dos dados, limpeza, transformação e geração de gráficos para identificar padrões.
+
+O principal desafio foi a construção de consultas e filtros eficientes para identificar valores inconsistentes com a lógica de cada coluna. Além disso, foi necessário tratar a conversão de tipos numéricos, remover dados despadronizados e ajustar a formatação dos gráficos. O uso do Pyplot exigiu refinamento para garantir uma apresentação visual clara e alinhada com os dados analisados.
+
+A abordagem seguiu um fluxo estruturado, priorizando organização nos dados e visualizações diretas para a análise.
+
 ## Conjunto de Dados
 
 O dataset utilizado é o [`googleplaystore.csv`](googleplaystore.csv), contendo informações sobre aplicativos disponíveis na Google Play Store. Esse conjunto de dados inclui atributos como nome do app, categoria, número de downloads, avaliações, tipo de monetização e classificação indicativa.
@@ -111,9 +119,30 @@ A pasta [`notebook_jupyter/`](notebook_jupyter/) contém o código utilizado par
 ---
 ## Como Executar
 
-1. Abra o notebook disponível em [`notebook_jupyter/`](notebook_jupyter/).
-2. Baixe pandas e matplotlib caso não tenha no seu ambiente. ( pip install pandas matplotlib )
-3. Execute as células do notebook para carregar e processar os dados.
-4. Visualize os gráficos gerados dentro do notebook.
-5. Consulte o relatório de valores distintos em [`relatorio_valores_distintos.txt`](relatorio_valores_distintos.txt).
+Para reproduzir a análise e os gráficos no **Jupyter Notebook**, siga as etapas abaixo.
+
+### 1. Configuração do Ambiente
+
+Antes de executar o notebook, é necessário configurar o ambiente e instalar os pacotes necessários.
+
+#### Requisitos:
+- Python 3.x instalado ([Download](https://www.python.org/downloads/))
+- Git instalado ([Download](https://git-scm.com/downloads))
+- Jupyter Notebook instalado
+
+**Instalação dos pacotes necessários:**
+No terminal ou prompt de comando, execute:
+
+```sh
+pip install pandas matplotlib notebook
+```
+
+#### 2.Executando no ambiente
+- Execute as células do notebook para carregar e processar os dados.
+
+#### 3. Consulte o relatório de valores distintos em [`relatorio_valores_distintos.txt`](relatorio_valores_distintos.txt).
+
+#### 4. Gráficos
+- Visualize os gráficos e os resultados gerados dentro do notebook.
+
 
