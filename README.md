@@ -4,11 +4,11 @@
 ---
 ## Sobre mim
 
-- 👋 **Olá!** Sou Vinicius Mendes, de Fortaleza, Ceará.  
-- 🎓 Atualmente curso **Bacharelado em Sistemas de Informação** no **Centro Universitário 7 de Setembro (UNI7)**, onde estou no **2º semestre**.  
-- 💼 Atuo na **Universidade Federal do Ceará (UFC)**, por meio da **FUNDAÇÃO CETREDE**, desenvolvendo soluções para análise e organização de **dados governamentais**.  
-- 🐍 Utilizo algoritmos desenvolvidos em **Python**, com destaque para bibliotecas como **PyXLSB**, **Pandas** para automação de processos e extração de dados de arquivos Excel em grande escala.
-- 📊 Essas soluções impactam diretamente na geração de **relatórios estratégicos** e na melhoria dos processos de decisão.  
+- 🎯 Atuo como **GenAI Prompt Engineer** na **Outlier AI**, desenvolvendo e aprimorando prompts para inteligência artificial generativa (chat gpt).
+- 💻 Atualmente curso **Bacharelado em Sistemas de Informação** no **Centro Universitário 7 de Setembro (UNI7)**, onde estou no **2º semestre**.
+- 🏛 Trabalho na **Universidade Federal do Ceará (UFC)**, por meio da **FUNDAÇÃO CETREDE**, desenvolvendo soluções para análise e organização de **dados governamentais**.
+- 🚀 Utilizo algoritmos desenvolvidos em **Python**, com destaque para bibliotecas como **PyXLSB, Pandas**.
+- 📊 Minhas soluções impactam diretamente na **geração de relatórios estratégicos** e na **automação de processos**, otimizando a análise de grandes volumes de dados.
 
 ---
 ### 🌟 Destaques Acadêmicos
