@@ -3,7 +3,7 @@ A pasta **Sprint 2** está organizada da seguinte forma:
 
 ```
 Sprint 2/
-├─ Certificados/  # Certificados conquistados durante a sprint
+├─ Certificados/  # Certificados conquistados durante a sprint, Não obtivemos certificados nessa sprint
 ├─ Desafio/       # Implementações e análises relacionadas ao desafio da sprint
 ├─ Evidencias/    # Imagens que comprovam a execução das atividades do desafio
 ├─ Exercicios/    # Scripts e resoluções dos exercícios práticos
