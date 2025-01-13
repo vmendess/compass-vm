@@ -109,7 +109,8 @@ A pasta [`notebook_jupyter/`](notebook_jupyter/) contém o código utilizado par
 ## Como Executar
 
 1. Abra o notebook disponível em [`notebook_jupyter/`](notebook_jupyter/).
-2. Execute as células do notebook para carregar e processar os dados.
-3. Visualize os gráficos gerados dentro do notebook.
-4. Consulte o relatório de valores distintos em [`relatorio_valores_distintos.txt`](relatorio_valores_distintos.txt).
+2. Baixe pandas e matplotlib caso não tenha no seu ambiente. ( pip install pandas matplotlib )
+3. Execute as células do notebook para carregar e processar os dados.
+4. Visualize os gráficos gerados dentro do notebook.
+5. Consulte o relatório de valores distintos em [`relatorio_valores_distintos.txt`](relatorio_valores_distintos.txt).
 
