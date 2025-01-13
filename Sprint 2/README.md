@@ -89,7 +89,7 @@ print(conta_vogais('xyz'))
 Essa seção é voltada para **Extração, Transformação e Carga de Dados**, explorando manipulação de arquivos e automação de processos.
 
 **Exemplo de Código:**
-[menu_Analise](Exercicios/secao-6-ETL/menu_analise.py)
+[menu_analise](Exercicios/secao-6-ETL/menu_analise.py)
 ```python
 import os
 
