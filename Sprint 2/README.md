@@ -46,7 +46,7 @@ Os exercícios foram organizados seguindo a estrutura do curso na Udemy e contem
 Nesta seção, os exercícios abordam fundamentos essenciais de lógica de programação e manipulação de listas em Python.
 
 **Exemplo de Código:**
-[Ex01](Exercicios/secao-3-basico/ex01.py)
+[ex01](Exercicios/secao-3-basico/ex01.py)
 ```python
 # Dada a seguinte lista:
 a = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
@@ -62,7 +62,7 @@ print(impares)
 Essa seção foca no aprofundamento de conceitos como funções de alta ordem e manipulação de strings.
 
 **Exemplo de Código:**
-[Ex15](Exercicios/secao-4-avancado1/ex15.py)
+[ex15](Exercicios/secao-4-avancado1/ex15.py)
 ```python
 # Implementação intermediária do exercício
 # Exemplo de lógica avançada será inserida conforme necessidade
@@ -72,7 +72,7 @@ Essa seção foca no aprofundamento de conceitos como funções de alta ordem e 
 Exercícios avançados que envolvem conceitos mais complexos de programação funcional e processamento de dados.
 
 **Exemplo de Código:**
-[Ex21](Exercicios/secao-5-avancado2/ex21.py)
+[ex21](Exercicios/secao-5-avancado2/ex21.py)
 ```python
 def conta_vogais(texto: str) -> int:
     """
