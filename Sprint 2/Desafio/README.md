@@ -56,29 +56,42 @@ Foram aplicadas as seguintes transformações:
 
 ### 3) Geração de Gráficos
 
-Código fonte que gera o top 5 instalações:
+Código fonte que gera o Top 5 Apps por Número de Instalações:
 ```python
-# **Top 5 Apps por Número de Instalações**
+# Selecionar os 5 apps com mais instalações
 top_5_installs = df.nlargest(5, "Installs")
-plt.figure(figsize=(14, 7))  # Aumentando levemente o tamanho da figura
-plt.bar(top_5_installs["App"], top_5_installs["Installs"], color=['blue', 'orange', 'green', 'red', 'purple'])
 
-# Ajustando os rótulos para melhor exibição mesmo em janelas menores
-plt.xlabel("Apps")
-plt.ylabel("Número de Instalações")
-plt.title("Top 5 Apps por Número de Instalações")
+# Cores para cada barra
+colors = ['#00FFAA', '#FF5733', '#FFD700', '#1E90FF', '#9B59B6']
 
-# Rotação de 30° para melhor ajuste e aumento da fonte
-plt.xticks(rotation=30, ha='right', fontsize=14)
+# Gráfico estilizado com fundo dark
+with plt.style.context('dark_background'):
+    plt.figure(figsize=(14, 7))  
 
-# Adicionando um padding extra no bottom para evitar corte dos nomes em janelas menores
-plt.subplots_adjust(bottom=0.25)
+    # Gráfico de barras
+    plt.bar(top_5_installs["App"], top_5_installs["Installs"], color=colors, edgecolor='white', linewidth=1.5)
 
-# Adicionando grid discreto para facilitar a leitura
-plt.grid(axis='y', linestyle='--', alpha=0.7)
+    # Rótulos e título
+    plt.xlabel("Apps", color='white', fontsize=14, fontweight='bold')
+    plt.ylabel("Número de Instalações", color='white', fontsize=14, fontweight='bold')
+    plt.title("Top 5 Apps por Número de Instalações", color='white', fontsize=16, fontweight='bold')
 
-# Exibindo o gráfico atualizado
-plt.show()
+    # Rotação dos rótulos do eixo X
+    plt.xticks(rotation=30, ha='right', fontsize=14, color='white')
+    plt.yticks(fontsize=12, color='white')
+
+    # Grid discreto
+    plt.grid(axis='y', linestyle='--', alpha=0.5, color='gray')
+
+    # Números acima das barras para destacar valores
+    for i, v in enumerate(top_5_installs["Installs"]):
+        plt.text(i, v + (v * 0.02), f'{v:,}', ha='center', fontsize=12, color='white', fontweight='bold')
+
+    # Espaçamento inferior para evitar corte dos rótulos
+    plt.subplots_adjust(bottom=0.25)
+
+    # Gráfico
+    plt.show()
 ```
 
 Gráficos foram gerados para visualizar padrões nos dados. Os principais incluem:
