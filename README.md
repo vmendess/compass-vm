@@ -1,4 +1,4 @@
-![Minha_Foto](foto.jpg)
+![Minha_Foto](Sprint%201/Certificados/foto.jpg)
 
 
 ---
