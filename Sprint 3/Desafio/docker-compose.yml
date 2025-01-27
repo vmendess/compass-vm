@@ -1,0 +1,13 @@
+services:
+  etapa-1:
+    build:
+      context: ./etapa-1
+    volumes:
+      - ./etapa-1/volume:/volume_input   # Volume de entrada para o CSV original
+      - ./etapa-2/volume:/volume_output  # Volume de saída para o CSV limpo
+
+  etapa-2:
+    build:
+      context: ./etapa-2
+    volumes:
+      - ./etapa-2/volume:/volume  # Volume único para leitura do CSV limpo e salvamento dos resultados
