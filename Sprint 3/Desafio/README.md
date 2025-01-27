@@ -83,6 +83,8 @@ O projeto é dividido em duas etapas principais, com a utilização de volumes p
 
 - **Gráficos Gerados:**
   - Faturamento por Ano - Taylor Swift  
+  - A notação 1e8 indica cem milhões e é automaticamente utilizada pelo Matplotlib quando os valores nos eixos atingem escalas grandes ou pequenas.
+  - Isso ajuda a evitar que o gráfico fique visualmente poluído com números longos e facilita a interpretação dos dados.
     ![Q4.png](etapa-2/volume/graficos/Q4.png)
   - Top 5 Artistas com Mais Shows  
     ![Q5.png](etapa-2/volume/graficos/Q5.png)
