@@ -4,8 +4,8 @@
 ---
 ## Sobre mim
 
-- 🎯 Atuo como **GenAI Prompt Engineer** na **Outlier AI**, desenvolvendo e aprimorando prompts para inteligência artificial generativa (chat gpt).
-- 💻 Atualmente curso **Bacharelado em Sistemas de Informação** no **Centro Universitário 7 de Setembro (UNI7)**, onde estou no **2º semestre**.
+- 🎯 Atuo como **Engenheiro de prompt** na **Outlier AI**, desenvolvendo e aprimorando prompts para inteligência artificial generativa (chat gpt).
+- 💻 Atualmente curso **Bacharelado em Sistemas de Informação** no **Centro Universitário 7 de Setembro (UNI7)**, onde estou no **3º semestre**.
 - 🏛  Atuei na **Universidade Federal do Ceará (UFC)**, por meio da **FUNDAÇÃO CETREDE** (jan 2024 - jan 2025), desenvolvendo soluções para análise e organização de **dados governamentais**. 
 - 🚀 Utilizo algoritmos desenvolvidos em **Python**, com destaque para bibliotecas como **PyXLSB, Pandas**.
 - 📊 Minhas soluções impactam diretamente na **geração de relatórios estratégicos** e na **automação de processos**, otimizando a análise de grandes volumes de dados.
@@ -30,5 +30,5 @@
 1. [Sprint 1](Sprint%201)
 2. [Sprint 2](Sprint%202)
 3. [Sprint 3](Sprint%203)
-4. ...
+4. [Sprint 4](Sprint%204)
 
