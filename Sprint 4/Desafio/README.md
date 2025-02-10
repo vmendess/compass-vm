@@ -50,7 +50,7 @@ Essa opção permite configurar o ambiente rapidamente, garantindo que todas as 
 Antes de executar qualquer etapa, é necessário criar um arquivo **.env** e preencher com suas credenciais da AWS. Esse arquivo **NÃO DEVE SER COMPARTILHADO**.
 
 ### Crie o arquivo `.env`
-1. Na pasta do projeto, crie um arquivo chamado `.env`.
+1. Na pasta Desafio, crie um arquivo chamado `.env`.
 2. Adicione as credenciais no seguinte formato:
    ```env
    AWS_ACCESS_KEY_ID=seu_access_key
