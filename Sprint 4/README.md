@@ -2,7 +2,11 @@
 A pasta **Sprint 4** está organizada da seguinte forma:
 
 ```
+<<<<<<< HEAD
 Sprint 4/
+=======
+Sprint 2/
+>>>>>>> 1b68881d (Adicionando Sprint 5)
 ├─ Certificados/  # Certificados conquistados durante a sprint, obtivemos certificados nessa sprint
 ├─ Desafio/       # Implementações e análises relacionadas ao desafio da sprint
 ├─ Evidencias/    # Imagens que comprovam a execução das atividades do desafio
