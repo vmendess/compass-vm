@@ -37,7 +37,7 @@ Exemplo de evidência gerada:
 
 ---
 
-## Exercícios
+## [Exercicios](Exercicios/)
 
 Os exercícios foram organizados seguindo a estrutura do PB.
 
