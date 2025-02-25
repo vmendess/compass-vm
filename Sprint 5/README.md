@@ -19,7 +19,7 @@ Os certificados obtidos durante a Sprint 5 estão disponíveis na pasta [Certifi
 ---
 ### Desafio
 
-A pasta **Desafio** contém todos os artefatos relacionados ao desafio desta sprint. A estrutura está organizada para facilitar o entendimento das entregas e inclui os seguintes itens:
+A pasta **[Desafio](Desafio/)** contém todos os artefatos relacionados ao desafio desta sprint. A estrutura está organizada para facilitar o entendimento das entregas e inclui os seguintes itens:
 
 - **1 Arquivo README.md nas duas etapas**: Documentação detalhada sobre o desafio, incluindo as etapas e os resultados obtidos.
 - **etapa-1/**: Artefatos da Etapa 1 – preparação do ambiente e upload dos arquivos CSV para o Amazon S3.
