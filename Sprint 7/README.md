@@ -32,7 +32,7 @@ As evidências para validação das execuções realizadas estão armazenadas na
 
 Exemplo de evidência gerada:
 
-![s3](./evidencias/s3.png)
+![s3](./Evidencias/s3.png)
 
 ---
 
