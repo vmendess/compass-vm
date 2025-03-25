@@ -4,7 +4,7 @@
 Este desafio consiste em criar um **job do AWS Glue** que leia dados da camada Trusted (armazenados em formato Parquet/CSV no S3), aplique transformações e gere tabelas na camada **Refined**. O objetivo é organizar os dados em um modelo dimensional, facilitando consultas e análises posteriores, por exemplo, no Amazon Athena.
 
 ## Anagrama do modelo dimensional:
-![anagrama](../evidencias/anagrama.png)
+![anagrama](../Evidencias/anagrama.png)
 
 
 ## 2. Tecnologias Utilizadas
@@ -91,11 +91,11 @@ Abaixo, um resumo das etapas do arquivo `refined_job.py`:
 
 ### 5.1. Execução do Job no AWS Glue
 
-![log](../evidencias/log.png)
+![log](../Evidencias/log.png)
 
 ### 5.2. Estrutura no S3
 
-![s3](../evidencias/s3.png)
+![s3](../Evidencias/s3.png)
 
 ### 5.3. Consultas no Athena
 
@@ -122,7 +122,7 @@ Esta consulta serve como uma **evidência prática** de que:
 - Os dados essenciais de cada entidade (série, tempo, sentimento e elenco) foram carregados e estão disponíveis para análises.
 - É possível realizar joins entre as diferentes tabelas sem perder registros importantes, o que demonstra a integridade do modelo dimensional.
 
-![consulta](../evidencias/consulta.png)
+![consulta](../Evidencias/consulta.png)
 
 ## 6. Como Executar
 1. Faça o upload do arquivo `refined_job.py` no AWS Glue Scripts (ou utilize um bucket S3 de scripts).  
