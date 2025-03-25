@@ -34,4 +34,4 @@
 4. [Sprint 4](Sprint%204)
 5. [Sprint 5](Sprint%205)
 6. [Sprint 6](Sprint%206)
-7. [Sprint 6](Sprint%207)
+7. [Sprint 7](Sprint%207)
