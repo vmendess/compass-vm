@@ -115,12 +115,9 @@ A consulta a seguir foi desenvolvida para validar a consistência do nosso model
 - **Integração com a Dimensão de Elenco (dim_elenco):**  
   A consulta também une com a dimensão de elenco para exibir informações sobre os atores (nome do ator, personagem e popularidade) associados à série. Essa união ajuda a confirmar que os dados do elenco foram processados corretamente e estão relacionados à série correta.
 
-## Por que essa consulta valida o modelo dimensional?
-
-Esta consulta serve como uma **evidência prática** de que:
-- As tabelas fato e dimensões estão interligadas corretamente através das chaves comuns (nesse caso, `id_tmdb` e `data_lancamento`).
-- Os dados essenciais de cada entidade (série, tempo, sentimento e elenco) foram carregados e estão disponíveis para análises.
-- É possível realizar joins entre as diferentes tabelas sem perder registros importantes, o que demonstra a integridade do modelo dimensional.
+## Acabei descobrindo que 2 tabelas com IDS os dados foram perdidos, identifiquei o problema no job da camada Trusted (Desafio Sprint 6), fiz consultas nos arquivos .parquet e identifiquei a fonte do problema, os dados de 2 colunas de IDS, ficaram nulos.
+- Irei corrigir para conseguir a eficácia do modelo dimensional e obter resultados concretos.
+- Pelo prazo da sprint 7, não consegui corrigir a tempo, mas pretendo ter um bom resultado final.
 
 ![consulta](../Evidencias/consulta.png)
 
@@ -131,5 +128,375 @@ Esta consulta serve como uma **evidência prática** de que:
 4. Execute o Job.  
 5. Acompanhe o progresso pelo console do Glue ou CloudWatch Logs.  
 6. Ao finalizar, verifique o S3 na pasta `Refined/`.
+
+---
+
+# Mudanças na extração de dados da API do TMDB (AWS Lambda, desafio da sprint 5).
+Realizei mudanças nos dados extraidos do TMDB, creio que a lógica antiga que pegava mais filmes usando método discover da API não estava complementando os dados do CSV (que era o foco), e sim pegando mais filmes, porém, eram informações que já tinhamos bastante acesso por meio dos arquivos CSV, mediante esse problema, refiz o processo, e extrai novos tipos de dados.
+
+---
+
+## 1. Visão Geral
+
+A função Lambda busca informações relacionadas à série “Bates Motel” na [API do TMDB (The Movie Database)](https://developers.themoviedb.org/3), obtendo:
+
+1. **Detalhes gerais** da série (incluindo créditos e IDs externos).
+2. **Avaliações** (reviews) sobre a série.
+3. **Recomendações** de outras séries relacionadas.
+
+Em seguida, faz o *upload* de cada parte dessas informações em um *bucket* S3, garantindo que:
+- **Cada arquivo** não exceda 10 MB.
+- **Cada chunk** não contenha mais que 100 registros para facilitar o controle.
+
+---
+
+## 2. Requisitos
+
+1. **API Key** do TMDB. Certifique-se de definir essa chave em uma variável de ambiente chamada `TMDB_API_KEY`.
+2. **Bucket S3** para armazenar os arquivos JSON. Por padrão, a função utilizará o valor de `S3_BUCKET` ou, caso não definido, usará `"vm-sprint05"`.
+3. **Configuração do AWS Lambda** com permissões suficientes para acessar:
+   - **S3** (para efetuar o *upload*).
+   - **Network** (para chamadas HTTPS à API do TMDB).
+
+---
+
+## 3. Estrutura do Código
+
+```python
+import os
+import json
+import boto3
+import requests
+from datetime import date
+
+# Configurações de variáveis de ambiente
+TMDB_API_KEY = os.environ.get("TMDB_API_KEY")
+S3_BUCKET = os.environ.get("S3_BUCKET", "vm-sprint05")
+
+# Inicialização do cliente S3
+s3_client = boto3.client('s3')
+
+# Constantes de segurança
+MAX_REGISTROS_POR_ARQUIVO = 100
+MAX_BYTES_POR_ARQUIVO = 10 * 1024 * 1024  # 10 MB
+
+# Função para obter JSON da API TMDB
+def obter_json(url, params=None):
+    params = params or {}
+    params['api_key'] = TMDB_API_KEY
+    params['language'] = 'pt-BR'
+    resposta = requests.get(url, params=params)
+    return resposta.json() if resposta.status_code == 200 else {}
+
+# Função para salvar JSON no S3 com verificação de tamanho
+def salvar_chunk_s3(dados, nome_base_arquivo, indice_chunk):
+    json_str = json.dumps(dados, ensure_ascii=False, indent=2)
+    tamanho_bytes = len(json_str.encode('utf-8'))
+
+    if tamanho_bytes > MAX_BYTES_POR_ARQUIVO:
+        raise ValueError(f"Tamanho do arquivo excede 10MB: {tamanho_bytes} bytes.")
+
+    prefixo = f'Raw/TMDB/JSON/{date.today().strftime("%Y/%m/%d")}'
+    chave_s3 = f'{prefixo}/{nome_base_arquivo}_parte_{indice_chunk:03d}.json'
+
+    s3_client.put_object(Bucket=S3_BUCKET, Key=chave_s3, Body=json_str.encode('utf-8'))
+    return chave_s3
+
+# Função principal Lambda
+def lambda_handler(event, context):
+    serie_nome = 'Bates Motel'
+
+    # Busca inicial da série por nome
+    busca_url = 'https://api.themoviedb.org/3/search/tv'
+    resultado_busca = obter_json(busca_url, {'query': serie_nome})
+
+    if not resultado_busca.get('results'):
+        return {"statusCode": 404, "body": json.dumps("Série não encontrada.")}
+
+    serie = resultado_busca['results'][0]
+    serie_id = serie['id']
+
+    # Obter detalhes gerais da série (inclui créditos e IDs externos)
+    detalhes_url = f'https://api.themoviedb.org/3/tv/{serie_id}'
+    detalhes_gerais = obter_json(detalhes_url, {'append_to_response': 'credits,external_ids'})
+
+    # Obter avaliações da série (reviews)
+    reviews_url = f'https://api.themoviedb.org/3/tv/{serie_id}/reviews'
+    avaliacoes = obter_json(reviews_url).get('results', [])
+
+    # Obter séries recomendadas
+    recomendacoes_url = f'https://api.themoviedb.org/3/tv/{serie_id}/recommendations'
+    recomendacoes = obter_json(recomendacoes_url).get('results', [])
+
+    # Agregar resultados em uma lista única
+    dados_agregados = {
+        'serie': serie,
+        'detalhes': detalhes_gerais,
+        'avaliacoes': avaliacoes,
+        'recomendacoes': recomendacoes
+    }
+
+    # Dividir os dados em chunks (máx. 100 registros por arquivo)
+    todos_registros = avaliacoes + recomendacoes
+    chunks = [todos_registros[i:i + MAX_REGISTROS_POR_ARQUIVO] for i in range(0, len(todos_registros), MAX_REGISTROS_POR_ARQUIVO)]
+
+    # Salvar detalhes gerais separadamente (geralmente menor que 10 MB)
+    caminho_detalhes = salvar_chunk_s3({'serie': serie, 'detalhes': detalhes_gerais}, 'bates_motel_detalhes', 1)
+
+    caminhos_chunks = [caminho_detalhes]
+
+    # Salvar chunks de reviews e recomendações com verificação de tamanho
+    for idx, chunk in enumerate(chunks, start=1):
+        caminho_chunk = salvar_chunk_s3(chunk, 'bates_motel_reviews_recomendacoes', idx)
+        caminhos_chunks.append(caminho_chunk)
+
+    # Retorna informações dos arquivos salvos no S3
+    return {
+        "statusCode": 200,
+        "body": json.dumps({
+            "arquivos_s3": caminhos_chunks,
+            "total_arquivos": len(caminhos_chunks),
+            "total_registros": len(todos_registros) + 1  # inclui o arquivo inicial com detalhes gerais
+        })
+    }
+```
+
+## 4. Explicação de Cada Trecho
+
+### 4.1 Importações
+
+```python
+import os
+import json
+import boto3
+import requests
+from datetime import date
+```
+
+- **os** e **json**: usados para manipular variáveis de ambiente e estruturas JSON.  
+- **boto3**: biblioteca oficial da AWS para Python, para interação com o S3.  
+- **requests**: para realizar requisições HTTP na API do TMDB.  
+- **date** de **datetime**: para formatar a data ao salvar arquivos no S3 (segregação por data).
+
+---
+
+### 4.2 Variáveis de Ambiente e Configurações
+
+```python
+TMDB_API_KEY = os.environ.get("TMDB_API_KEY")
+S3_BUCKET = os.environ.get("S3_BUCKET", "vm-sprint05")
+```
+
+- **TMDB_API_KEY** precisa ser configurada como variável de ambiente.  
+- **S3_BUCKET** define o bucket a ser utilizado. Se não existir, assume `"vm-sprint05"`.
+
+---
+
+### 4.3 Constantes de Segurança
+
+```python
+MAX_REGISTROS_POR_ARQUIVO = 100
+MAX_BYTES_POR_ARQUIVO = 10 * 1024 * 1024  # 10 MB
+```
+
+- Cada arquivo JSON não terá mais do que **100 registros** (divisão por chunk).  
+- Tamanho máximo de **10 MB** por arquivo.
+
+---
+
+### 4.4 Função para Obter JSON da API TMDB
+
+```python
+def obter_json(url, params=None):
+    params = params or {}
+    params['api_key'] = TMDB_API_KEY
+    params['language'] = 'pt-BR'
+    resposta = requests.get(url, params=params)
+    return resposta.json() if resposta.status_code == 200 else {}
+```
+
+- Realiza a chamada à API do TMDB.  
+- Adiciona automaticamente `api_key` e `language` (PT-BR).  
+- Se o status não for 200, retorna um dicionário vazio `{}`.
+
+---
+
+### 4.5 Função para Salvar JSON no S3
+
+```python
+def salvar_chunk_s3(dados, nome_base_arquivo, indice_chunk):
+    json_str = json.dumps(dados, ensure_ascii=False, indent=2)
+    tamanho_bytes = len(json_str.encode('utf-8'))
+
+    if tamanho_bytes > MAX_BYTES_POR_ARQUIVO:
+        raise ValueError(f"Tamanho do arquivo excede 10MB: {tamanho_bytes} bytes.")
+
+    prefixo = f'Raw/TMDB/JSON/{date.today().strftime("%Y/%m/%d")}'
+    chave_s3 = f'{prefixo}/{nome_base_arquivo}_parte_{indice_chunk:03d}.json'
+
+    s3_client.put_object(Bucket=S3_BUCKET, Key=chave_s3, Body=json_str.encode('utf-8'))
+    return chave_s3
+```
+
+- Converte o dicionário Python em string JSON com `json.dumps`.  
+- Verifica se o arquivo excede 10 MB.  
+- Gera uma chave S3 dinâmica, incluindo `year/month/day`.  
+- Usa `put_object` do `boto3` para enviar o arquivo ao S3.  
+- Retorna a chave do objeto no S3 para controle.
+
+---
+
+### 4.6 Função Principal – `lambda_handler`
+
+```python
+def lambda_handler(event, context):
+    serie_nome = 'Bates Motel'
+    ...
+    return {...}
+```
+
+---
+
+#### 4.6.1 Busca Inicial
+
+```python
+busca_url = 'https://api.themoviedb.org/3/search/tv'
+resultado_busca = obter_json(busca_url, {'query': serie_nome})
+
+if not resultado_busca.get('results'):
+    return {"statusCode": 404, "body": json.dumps("Série não encontrada.")}
+```
+
+- Monta a URL de busca por séries (`query = "Bates Motel"`).  
+- Se não houver resultados, retorna status `404`.
+
+---
+
+#### 4.6.2 Obtenção de Detalhes Gerais
+
+```python
+serie = resultado_busca['results'][0]
+serie_id = serie['id']
+
+detalhes_url = f'https://api.themoviedb.org/3/tv/{serie_id}'
+detalhes_gerais = obter_json(detalhes_url, {'append_to_response': 'credits,external_ids'})
+```
+
+- Coleta o ID da série.  
+- Faz nova requisição para obter créditos e IDs externos (`append_to_response`).
+
+---
+
+#### 4.6.3 Avaliações (Reviews)
+
+```python
+reviews_url = f'https://api.themoviedb.org/3/tv/{serie_id}/reviews'
+avaliacoes = obter_json(reviews_url).get('results', [])
+```
+
+- Busca as avaliações de usuários (reviews) da série.
+
+---
+
+#### 4.6.4 Recomendações
+
+```python
+recomendacoes_url = f'https://api.themoviedb.org/3/tv/{serie_id}/recommendations'
+recomendacoes = obter_json(recomendacoes_url).get('results', [])
+```
+
+- Busca recomendações de séries relacionadas a “Bates Motel”.
+
+---
+
+#### 4.6.5 Agrupamento de Dados
+
+```python
+dados_agregados = {
+    'serie': serie,
+    'detalhes': detalhes_gerais,
+    'avaliacoes': avaliacoes,
+    'recomendacoes': recomendacoes
+}
+```
+
+- Monta um dicionário com todas as informações obtidas.
+
+---
+
+#### 4.6.6 Divisão em Chunks
+
+```python
+todos_registros = avaliacoes + recomendacoes
+chunks = [todos_registros[i:i + MAX_REGISTROS_POR_ARQUIVO] 
+          for i in range(0, len(todos_registros), MAX_REGISTROS_POR_ARQUIVO)]
+```
+
+- Concatena as listas de avaliações e recomendações.  
+- Divide em partes com no máximo 100 registros.
+
+---
+
+#### 4.6.7 Salvar no S3
+
+**Salvar detalhes gerais:**
+
+```python
+caminho_detalhes = salvar_chunk_s3({'serie': serie, 'detalhes': detalhes_gerais}, 
+                                   'bates_motel_detalhes', 
+                                   1)
+caminhos_chunks = [caminho_detalhes]
+```
+
+**Salvar chunks de reviews e recomendações:**
+
+```python
+for idx, chunk in enumerate(chunks, start=1):
+    caminho_chunk = salvar_chunk_s3(chunk, 'bates_motel_reviews_recomendacoes', idx)
+    caminhos_chunks.append(caminho_chunk)
+```
+
+---
+
+#### 4.6.8 Retorno de Informações
+
+```python
+return {
+    "statusCode": 200,
+    "body": json.dumps({
+        "arquivos_s3": caminhos_chunks,
+        "total_arquivos": len(caminhos_chunks),
+        "total_registros": len(todos_registros) + 1
+    })
+}
+```
+
+- Retorna os caminhos no S3, o número de arquivos criados e o total de registros salvos.
+
+---
+
+## 5. Passos para Implantação
+
+1. **Adicionar Variáveis de Ambiente no Lambda**  
+   - `TMDB_API_KEY`: Chave da API do TMDB  
+   - `S3_BUCKET` (opcional): Nome do bucket
+
+2. **Permissões na Role da Lambda**  
+   - Adicionar permissão `s3:PutObject`
+
+3. **Copiar o Código para a Função Lambda**
+
+4. **Executar Testes com o Evento Padrão**
+
+5. **Verificar os Logs no CloudWatch**
+
+---
+
+## 6. Observações Importantes
+
+- A série pesquisada está fixa como `'Bates Motel'`, mas pode ser modificada.
+- Apenas respostas com status 200 da API são consideradas válidas.
+- A divisão em chunks de até 100 registros evita arquivos grandes demais.
+- A estratégia `append_to_response` melhora a eficiência das requisições, agregando dados em uma única chamada.
 
 
