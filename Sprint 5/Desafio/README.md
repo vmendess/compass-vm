@@ -140,10 +140,12 @@ Essas variáveis devem ser configuradas no **console do AWS Lambda**, na seção
 
 Para garantir que o código tenha todas as bibliotecas necessárias ao ser enviado para o AWS Lambda, é necessário instalar as dependências dentro da pasta do projeto localmente.
 
+> As bibliotecas instaladas **não ficam versionadas** no repositório (estão no `.gitignore`), apenas o `lambda_function.py` e o `requirements.txt`. Rode o comando abaixo antes de gerar o ZIP. O `boto3` já vem incluído no runtime Python do Lambda, por isso não está na lista.
+
 O arquivo `requirements.txt` contém:
 
 ```txt
-requests
+requests==2.32.3
 ```
 
 Para instalar os pacotes localmente dentro do projeto:

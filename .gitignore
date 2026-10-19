@@ -1,4 +1,10 @@
 .env
 venv/
 .vscode
-jupyter_env
+jupyter_env__pycache__/
+*.pyc
+
+# Dependências da Lambda (Sprint 5) são instaladas com pip -t, não versionadas
+Sprint 5/Desafio/etapa-2/*
+!Sprint 5/Desafio/etapa-2/lambda_function.py
+!Sprint 5/Desafio/etapa-2/requirements.txt
